@@ -2,6 +2,9 @@ from flair.datasets import ColumnCorpus
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
 from flair.embeddings import TransformerWordEmbeddings, FlairEmbeddings, StackedEmbeddings, WordEmbeddings
+import flair
+
+flair.set_seed(1)
 
 columns = {0: "text", 1: "ner-1", 2: "ner-2"}
 data_folder = "../constructed-training-data/"
@@ -24,3 +27,5 @@ trainer.train(
     learning_rate=0.1,
     mini_batch_size=32,
 )
+
+# TODO: do not split data into train, val and test. only in train and val. because there will be coming extra test data without annotation!

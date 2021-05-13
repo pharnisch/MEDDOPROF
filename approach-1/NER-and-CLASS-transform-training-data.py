@@ -1,7 +1,5 @@
-import flair
 import os
-from flair.data import Corpus, Sentence
-from flair.datasets import SentenceDataset
+from flair.data import Sentence
 
 # This file assumes that check-for-same-occupations-in-1-and-2.py works! (so that task 1 and 2 share same occupations)
 
