@@ -25,7 +25,7 @@ tagger = SequenceTagger(hidden_size, embeddings, dictionary, task)
 
 trainer = ModelTrainer(tagger, corpus, optimizer=torch.optim.AdamW)
 trainer.train(
-    base_path="taggers/2-stacked",
+    base_path="taggers/1-stacked",
     train_with_dev=False,
     max_epochs=30,
     learning_rate=0.001,
