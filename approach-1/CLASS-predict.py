@@ -2,10 +2,10 @@ import os
 from flair.models import SequenceTagger
 from flair.data import Sentence
 
-test_texts_path = "../predictions_toy_data/ner/1-sequenceTagger/"
+test_texts_path = "../predictions_toy_data/class/1-sequenceTagger/"
 encoding = "utf-8"
 
-tagger = SequenceTagger.load("taggers/1-stacked/best-model.pt")
+tagger = SequenceTagger.load("taggers/2-stacked/best-model.pt")
 
 for file in os.listdir(test_texts_path):
     file_name = os.fsdecode(file)
@@ -22,7 +22,7 @@ for file in os.listdir(test_texts_path):
         start = -1
         end = -1
         for tkn in sent:
-            tag = tkn.get_tag("ner-1").value
+            tag = tkn.get_tag("ner-2").value
             if "B-" in tag or "I-" in tag:
                 spl = tag.split("-")
                 prefix = spl[0]
