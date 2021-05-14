@@ -2,7 +2,7 @@ import os
 from flair.models import SequenceTagger
 from flair.data import Sentence
 
-test_texts_path = "../../meddoprof-evaluation-library/toy-data/meddoprof-ner/1-systemDL/"
+test_texts_path = "../predictions_toy_data/ner/1-sequenceTagger/"
 encoding = "utf-8"
 
 tagger = SequenceTagger.load("taggers/stacked-1/best-model.pt")
