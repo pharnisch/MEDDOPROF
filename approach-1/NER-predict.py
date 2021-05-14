@@ -28,7 +28,6 @@ for file in os.listdir(test_texts_path):
                 prefix = spl[0]
                 label = spl[1]
 
-                occupation += 1
                 if prefix == "B":
                     start = tkn.start_position
                 end = tkn.end_position  # last one overwrites at last
@@ -38,6 +37,7 @@ for file in os.listdir(test_texts_path):
                     print(" ... adding one line to ann-file!")
                     text = txt[start:end]
                     print(text)
+                    occupation += 1
                     ann_file.write(f"T{occupation}\t{label} {start} {end}\t{text}\n")
                     label = ""
                     start = -1
@@ -46,6 +46,7 @@ for file in os.listdir(test_texts_path):
             print(" ... adding one line to ann-file!")
             text = txt[start:end]
             print(text)
+            occupation += 1
             ann_file.write(f"T{occupation}\t{label} {start} {end}\t{text}\n")
             label = ""
             start = -1
