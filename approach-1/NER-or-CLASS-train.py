@@ -8,7 +8,7 @@ import torch
 
 flair.set_seed(1)
 
-task = "ner-1"  # 1 (NER): ner-1, 2 (CLASS): ner-2
+task = "ner-2"  # 1 (NER): ner-1, 2 (CLASS): ner-2
 columns = {0: "text", 1: "ner-1", 2: "ner-2"}
 data_folder = "../constructed-training-data/"
 # TODO: for full retraining at the end, sample_missing_splits=False
@@ -25,7 +25,7 @@ tagger = SequenceTagger(hidden_size, embeddings, dictionary, task)
 
 trainer = ModelTrainer(tagger, corpus, optimizer=torch.optim.AdamW)
 trainer.train(
-    base_path="taggers/1-stacked",
+    base_path=f"taggers/{task}-stacked",
     train_with_dev=False,
     max_epochs=30,
     learning_rate=0.001,

@@ -5,7 +5,7 @@ from flair.data import Sentence
 test_texts_path = "../predictions_toy_data/class/1-sequenceTagger/"
 encoding = "utf-8"
 
-tagger = SequenceTagger.load("taggers/2-stacked/best-model.pt")
+tagger = SequenceTagger.load("taggers/ner-2-stacked/best-model.pt")
 
 for file in os.listdir(test_texts_path):
     file_name = os.fsdecode(file)
