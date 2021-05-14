@@ -11,7 +11,8 @@ for file in os.listdir(test_texts_path):
     file_name = os.fsdecode(file)
     if ".txt" in file_name:
         txt_file = open(test_texts_path + file_name, "r", encoding=encoding)
-        sent = Sentence(txt_file.read())
+        txt = txt_file.read()
+        sent = Sentence(txt)
 
         tagger.predict(sent)
         ann_file = open(test_texts_path + file_name[:-4] + ".ann", "w", encoding=encoding)
@@ -35,7 +36,7 @@ for file in os.listdir(test_texts_path):
             else:
                 if start != -1 and end != -1:
                     print(" ... adding one line to ann-file!")
-                    text = txt_file[start:end]
+                    text = txt[start:end]
                     print(text)
                     ann_file.write(f"T{occupation}\t{label} {start} {end}\t{text}\n")
                     label = ""
@@ -43,7 +44,7 @@ for file in os.listdir(test_texts_path):
                     end = -1
         if start != -1 and end != -1:
             print(" ... adding one line to ann-file!")
-            text = txt_file[start:end]
+            text = txt[start:end]
             print(text)
             ann_file.write(f"T{occupation}\t{label} {start} {end}\t{text}\n")
             label = ""
